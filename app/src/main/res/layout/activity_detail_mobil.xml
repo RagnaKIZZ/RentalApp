@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".mobil.DetailMobilActivity">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:elevation="@dimen/_2sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TableLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_10sdp"
+                        android:stretchColumns="*">
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="1">
+
+                            <TextView
+                                android:id="@+id/txt_nama_mobil"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_column="0"
+                                android:fontFamily="serif"
+                                android:text="Daihatsu Xenia"
+                                android:textColor="@android:color/black"
+                                android:textSize="@dimen/_12ssp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/txt_tipe_mobil"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_column="1"
+                                android:fontFamily="serif"
+                                android:text="Tipe: Minibus"
+                                android:textAlignment="textEnd"
+                                android:textColor="@android:color/darker_gray"
+                                android:textSize="@dimen/_10ssp" />
+                        </TableRow>
+
+                    </TableLayout>
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_120sdp"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_10sdp">
+
+                        <ImageView
+                            android:id="@+id/img_mobil_detail"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_120sdp"
+                            android:scaleType="centerInside"
+                            tools:src="@drawable/new_avanza" />
+
+                        <ProgressBar
+                            android:id="@+id/progress_bar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"/>
+                    </FrameLayout>
+
+                    <TableLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_10sdp"
+                        android:stretchColumns="*">
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="1">
+
+                            <TextView
+                                android:id="@+id/txt_warna_mobil"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_column="0"
+                                android:fontFamily="serif"
+                                android:text="Black"
+                                android:textAlignment="center"
+                                android:textColor="@android:color/black"
+                                android:textSize="@dimen/_8ssp" />
+
+                            <TextView
+                                android:id="@+id/txt_tahun_mobil"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_column="1"
+                                android:fontFamily="serif"
+                                android:text="2016"
+                                android:textAlignment="center"
+                                android:textColor="@android:color/black"
+                                android:textSize="@dimen/_8sdp" />
+
+                            <TextView
+                                android:id="@+id/txt_transmisi_mobil"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_column="2"
+                                android:fontFamily="serif"
+                                android:text="Manual"
+                                android:textAlignment="center"
+                                android:textColor="@android:color/black"
+                                android:textSize="@dimen/_8sdp" />
+
+                            <TextView
+                                android:id="@+id/txt_kursi_mobil"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_column="3"
+                                android:fontFamily="serif"
+                                android:text="8 seats"
+                                android:textAlignment="center"
+                                android:textColor="@android:color/black"
+                                android:textSize="@dimen/_8sdp" />
+
+                            <TextView
+                                android:id="@+id/txt_pintu_mobil"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_column="4"
+                                android:fontFamily="serif"
+                                android:text="4 doors"
+                                android:textAlignment="center"
+                                android:textColor="@android:color/black"
+                                android:textSize="@dimen/_8sdp" />
+
+                            <TextView
+                                android:id="@+id/txt_bag_mobil"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_column="5"
+                                android:fontFamily="serif"
+                                android:text="3 bags"
+                                android:textAlignment="center"
+                                android:textColor="@android:color/black"
+                                android:textSize="@dimen/_8sdp" />
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="1">
+
+                            <ImageView
+                                android:layout_width="0dp"
+                                android:layout_height="@dimen/_30sdp"
+                                android:layout_column="0"
+                                android:scaleType="centerInside"
+                                android:src="@drawable/ic_palette_black_24dp" />
+
+                            <ImageView
+                                android:layout_width="0dp"
+                                android:layout_height="@dimen/_30sdp"
+                                android:layout_column="0"
+                                android:scaleType="centerInside"
+                                android:src="@drawable/ic_date_range_black_24dp" />
+
+                            <ImageView
+                                android:layout_width="0dp"
+                                android:layout_height="@dimen/_30sdp"
+                                android:layout_column="2"
+                                android:padding="@dimen/_3sdp"
+                                android:scaleType="centerInside"
+                                android:src="@drawable/manuals" />
+
+                            <ImageView
+                                android:layout_width="0dp"
+                                android:layout_height="@dimen/_30sdp"
+                                android:layout_column="3"
+                                android:padding="@dimen/_2sdp"
+                                android:scaleType="centerInside"
+                                android:src="@drawable/st" />
+
+                            <ImageView
+                                android:layout_width="0dp"
+                                android:layout_height="@dimen/_30sdp"
+                                android:layout_column="4"
+                                android:padding="@dimen/_6sdp"
+                                android:scaleType="centerInside"
+                                android:src="@drawable/cardor" />
+
+                            <ImageView
+                                android:layout_width="0dp"
+                                android:layout_height="@dimen/_30sdp"
+                                android:layout_column="5"
+                                android:padding="@dimen/_6sdp"
+                                android:scaleType="centerInside"
+                                android:src="@drawable/bag" />
+                        </TableRow>
+
+                    </TableLayout>
+
+                    <TableLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_10sdp"
+                        android:stretchColumns="*">
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:weightSum="1">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_column="0"
+                                android:layout_margin="@dimen/_5sdp"
+                                android:fontFamily="serif"
+                                android:text="@string/harga_sewa_mobil"
+                                android:textAlignment="center"
+                                android:textColor="@android:color/black"
+                                android:textSize="@dimen/_10ssp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/txt_harga_sewa_mobil"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_column="1"
+                                android:layout_margin="@dimen/_5sdp"
+                                android:fontFamily="serif"
+                                android:text="Rp200.000/hari"
+                                android:textAlignment="center"
+                                android:textColor="@android:color/black"
+                                android:textSize="@dimen/_13ssp"
+                                android:textStyle="bold" />
+                        </TableRow>
+
+                    </TableLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:elevation="@dimen/_2sdp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_5sdp">
+
+                    <TextView
+                        android:id="@+id/txtsupir"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:fontFamily="serif"
+                        android:text="Supir Rp300.000/hari"
+                        android:textColor="@android:color/black" />
+
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/switch_supir"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/_10sdp" />
+
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:elevation="@dimen/_2sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TableLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:stretchColumns="*">
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/darker_gray"
+                            android:weightSum="1">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/_5sdp"
+                                android:layout_span="2"
+                                android:fontFamily="serif"
+                                android:text="@string/pilih_tanggal_dan_jam"
+                                android:textAlignment="center"
+                                android:textColor="@android:color/white"
+                                android:textSize="@dimen/_10ssp"
+                                android:textStyle="bold" />
+
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="1">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_column="0"
+                                android:layout_margin="@dimen/_10sdp"
+                                android:fontFamily="serif"
+                                android:text="@string/tanggal_pinjam"
+                                android:textAlignment="textStart"
+                                android:textColor="@android:color/black"
+                                android:textSize="@dimen/_10ssp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_column="1"
+                                android:layout_margin="@dimen/_10sdp"
+                                android:fontFamily="serif"
+                                android:text="@string/tanggal_kembali"
+                                android:textAlignment="textStart"
+                                android:textColor="@android:color/black"
+                                android:textSize="@dimen/_10ssp" />
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="1">
+
+                            <EditText
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_column="0"
+                                android:layout_marginStart="@dimen/_10sdp"
+                                android:layout_marginEnd="@dimen/_10sdp"
+                                android:background="@drawable/bg_select_date"
+                                android:clickable="true"
+                                android:focusable="false"
+                                android:fontFamily="serif"
+                                android:hint="@string/select_date"
+                                android:longClickable="false"
+                                android:padding="@dimen/_5sdp"
+                                android:textAlignment="textStart"
+                                android:textColor="@android:color/black"
+                                android:textSize="@dimen/_10ssp"
+                                android:textStyle="normal" />
+
+                            <EditText
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_column="0"
+                                android:layout_marginStart="@dimen/_10sdp"
+                                android:layout_marginEnd="@dimen/_10sdp"
+                                android:background="@drawable/bg_select_date"
+                                android:clickable="true"
+                                android:focusable="false"
+                                android:fontFamily="serif"
+                                android:hint="@string/select_date"
+                                android:longClickable="false"
+                                android:padding="@dimen/_5sdp"
+                                android:textAlignment="textStart"
+                                android:textColor="@android:color/black"
+                                android:textSize="@dimen/_10ssp"
+                                android:textStyle="normal" />
+                        </TableRow>
+
+                    </TableLayout>
+
+                    <Button
+                        android:id="@+id/btn_jam_sewa"
+                        style="@style/Widget.AppCompat.Button.Colored"
+                        android:layout_width="@dimen/_120sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/bg_btn_jam"
+                        android:drawableStart="@drawable/ic_access_time_black_24dp"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:fontFamily="serif"
+                        android:paddingStart="@dimen/_10sdp"
+                        android:paddingEnd="10sp"
+                        android:text="@string/pilih_jam_sewa"
+                        android:textSize="@dimen/_8ssp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:fontFamily="serif"
+                        android:text="@string/jam_dipilih"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_8ssp" />
+
+                    <TextView
+                        android:id="@+id/txt_jam_dipilih"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:fontFamily="serif"
+                        android:text="12:00"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_10ssp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <Button
+                android:id="@+id/btn_make_order"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/_40sdp"
+                android:background="@drawable/bg_btn"
+                android:fontFamily="serif"
+                android:text="@string/buat_order"
+                android:textSize="@dimen/_13ssp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</LinearLayout>

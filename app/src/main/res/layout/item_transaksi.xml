@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_160sdp"
+    android:layout_margin="@dimen/_10sdp">
+
+    <RelativeLayout
+        android:id="@+id/rl_trans"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/_10sdp"
+        tools:background="@android:color/holo_red_light">
+
+        <FrameLayout
+            android:id="@+id/frameimg"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_70sdp">
+
+            <ImageView
+                android:id="@+id/img_mobil_trans"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerInside"
+                tools:src="@drawable/avanza" />
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_toEndOf="@+id/frameimg"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txt_nama_mobil_trans"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="serif"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"
+                tools:text="Toyota Avanza" />
+
+            <TextView
+                android:id="@+id/txt_tipe_mobil_trans"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="serif"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/_8ssp"
+                android:textStyle="normal"
+                tools:text="(Tipe xxx)" />
+
+            <TextView
+                android:id="@+id/txt_tipe_trans"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="serif"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/_10ssp"
+                android:textStyle="normal"
+                tools:text="Mobil dan supir" />
+
+            <TextView
+                android:id="@+id/txt_harga_trans"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="serif"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"
+                tools:text="Rp500.000" />
+
+            <TextView
+                android:id="@+id/txt_tanggal_pinjam_trans"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="serif"
+                android:textAlignment="textStart"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/_10ssp"
+                android:textStyle="normal"
+                tools:text="2020-05-10 (pukul 09:00)" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:fontFamily="serif"
+                android:text="s/d"
+                android:textAlignment="textStart"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/_10ssp" />
+
+            <TextView
+                android:id="@+id/txt_tanggal_kembali_trans"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="serif"
+                android:textAlignment="textStart"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/_10ssp"
+                android:textStyle="normal"
+                tools:text="2020-05-10 (pukul 09:00)" />
+
+            <TextView
+                android:id="@+id/txt_status_trans"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:fontFamily="serif"
+                android:textAlignment="textEnd"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/_10ssp"
+                android:textStyle="bold"
+                tools:text="Belum Lunas" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

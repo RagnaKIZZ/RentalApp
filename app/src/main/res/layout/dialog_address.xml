@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="@dimen/_250sdp"
+    android:layout_height="@dimen/_250sdp">
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_height="wrap_content"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_alamat"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_200sdp"/>
+    <Button
+        android:layout_below="@+id/rv_alamat"
+        android:layout_alignParentBottom="true"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:id="@+id/btn_cancel_address"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_30sdp"
+        android:layout_marginStart="@dimen/_30sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_gravity="end"
+        android:textStyle="bold"
+        android:fontFamily="serif"
+        android:textSize="@dimen/_12ssp"
+        android:background="@drawable/bg_btn"
+        android:paddingEnd="@dimen/_20sdp"
+        android:paddingStart="@dimen/_20sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:padding="@dimen/_5sdp"
+        android:text="Cancel"/>
+</RelativeLayout>

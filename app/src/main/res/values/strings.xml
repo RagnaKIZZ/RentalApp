@@ -1,0 +1,56 @@
+<resources>
+    <string name="app_name">Rental App</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="ancol">Pantai Ancol</string>
+    <string name="ancol_alamat">Jl. Lodan Raya, ancol, pademangan, Jakarta Utara</string>
+    <string name="ancol_desc">Pantai Ancol merupakan Objek wisata yang terletak di pesisir jakarta bagian utara.   di Pantai ini terdapat Jembatan ini cukup unik, yaitu jembatan cinta, dibuat melengkung dan menjadi jalur bagi mereka yang ingin pergi ke sebuah pendopo yang tersedia disana.  Berkunjung ke tempat ini bisa ditempuh dengan menggunakan kendaraan roda dua ataupun empat  Wisatawan, cukup mengikuti papan petunjuk yang telah tersedia di berbagai penjuru Kota Jakarta.</string>
+    <string name="monas_name">Monas</string>
+    <string name="monas_alamat">Jl. Medan Merdeka , Gambir , Jakarta Pusat</string>
+    <string name="monas_desc">Monumen Nasional merupakan tugu peringatan yang digunakan untuk mengenang perjuangan rakyat Indonesia dalam merebut kemerdekaan dari tangan penjajah. Bangunan ini memiliki tinggi 132 meter   perjalanan menuju objek wisata di Jakarta ini sangatlah mudah, karena lokasinya yang berada di dalam kota.</string>
+    <string name="tmii_desc">Taman Mini Indonesia Indah (TMII) merupakan suatu kawasan taman wisata bertema budaya Indonesia  Taman ini merupakan rangkuman kebudayaan bangsa Indonesia, yang mencakup berbagai aspek kehidupan sehari-hari masyarakat 26 provinsi Indonesia. yang ditampilkan dalam anjungan daerah berarsitektur tradisional, serta menampilkan aneka busana, tarian, dan tradisi daerah. Di samping itu, di tengah-tengah TMII terdapat sebuah danau yang menggambarkan miniatur kepulauan Indonesia.</string>
+    <string name="tmii_alamat">Jl. Medan Merdeka , Gambir , Jakarta Pusat</string>
+    <string name="tmii_nama">Taman Mini Indonesia Indah (TMII)</string>
+    <string name="ragunan_desc">Kebun Binatang Ragunan merupakan kebun binatang yang didirikan pertama kali di Indonesia , wisata ini masih menjadi primadona wisatawan hingga sekarang. Ragunan kini memiliki ribuan flora dan fauna lebih dari 2.000 ekor fauna.harga tiket masuk kebun binatang ini cukup terjangkau.  Bagi kamu yang ingin mengunjungi kawasan wisata ini, banyak rute dan transportasi yang bisa kamu gunakan.</string>
+    <string name="ragunan_alamat">Jl. Harsono RM , Ragunan, Pasar Minggu, Jakarta Selatan</string>
+    <string name="ragunan_nama">Kebun Binatang Ragunan</string>
+    <string name="kotu_nama">Museum Kota Tua</string>
+    <string name="kotu_alamat">Jl. Taman Fatahillah , Taman Sari, Jakatta Barat</string>
+    <string name="kotu_desc">Lebih dikenal sebagai Museum Fatahailah, museum ini   memiliki tiga lantai dengan banyak ruangan yang menyimpan sejarah detil soal Jakarta. Tak hanya itu saja, kamu juga bias menemukan ribuan koleksi benda bersejarah mengenai Perkembangan kota Jakarta sejak masih jadi Batavia dan Jayakarta dahulu.  Di museum ini pengunjung dapat berkunjung ke salah satu ruangan yang merupakan replika  dari kamar Pangeran Diponegoro.</string>
+    <string name="dufan_desc">Dufan atau Dunia Fantasi merupakan tempat hiburan   terbesar di Jakarta yang menarik. Dunia Fantasi yang biasa  disingkat Dufan yang terletak di kawasan Ancol Taman Impian,  Jakarta Utara, menjadi tempat tujuan rekreasi bagi warga Jakarta maupun luar kota Jakarta, baik untuk keluarga atau kaum muda.  banyak aneka permainan menarik dengan teknologi tinggi dan telah dijamin keamanannya yang dapat Anda coba. Anda dapat mencoba memacu adrenalin dengan mencoba permainan yang ada di Dufan.</string>
+    <string name="dufan_alamat">Taman Impian Jaya Ancol, Jakarta</string>
+    <string name="dufan_nama">Dunia Fantasi (Dufan)</string>
+
+    <string name="retype">Re-type Password</string>
+    <string name="valid_email">Please enter a valid email address</string>
+    <string name="cant_empty">Field can\'t be empty!</string>
+    <string name="doesnt_match">Must match as password!</string>
+    <string name="password_must_contains">Password min 8 character and must contains number, lowercase, uppercase</string>
+    <string name="valid_number">Please enter a valid number</string>
+    <string name="not_checked">Must be checked to continue</string>
+
+    <string name="servererrorr">Server error, please refresh page!</string>
+    <string name="nointernett">Connection lost, please refresh page!</string>
+    <string name="no_cars">No cars available</string>
+    <string name="no_trans">You haven\'t done any transactions</string>
+    <string name="server_error">Server error!</string>
+    <string name="cek_internet">Check your network!</string>
+
+    <string name="something_wrong">Something wrong!</string>
+    <string name="pilih_jenis_mobil">Pilih jenis mobil</string>
+    <string name="minivan">Minivan</string>
+    <string name="sedan">Sedan</string>
+    <string name="pilih_alamat">-- Pilih Alamat --</string>
+    <string name="destinasi_populer_di_jakarta">Destinasi populer di Jakarta</string>
+    <string name="pilih_tanggal_dan_jam">Pilih tanggal dan jam</string>
+    <string name="tanggal_pinjam">Tanggal Pinjam</string>
+    <string name="select_date">Select date</string>
+    <string name="tanggal_kembali">Tanggal Kembali</string>
+    <string name="pilih_jam_sewa">Pilih jam sewa</string>
+    <string name="jam_dipilih">Jam dipilih</string>
+    <string name="buat_order">Buat Order</string>
+    <string name="harga_sewa_mobil">Harga sewa mobil:</string>
+
+
+</resources>

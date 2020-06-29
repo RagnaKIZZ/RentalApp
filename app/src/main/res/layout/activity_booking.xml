@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".booking.BookingActivity">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp">
+
+                <ImageView
+                    android:id="@+id/img_mobil_detail_booking"
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="@dimen/_80sdp"
+                    android:layout_alignParentStart="true"
+                    android:scaleType="centerInside"
+                    tools:src="@drawable/avanza" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_toEndOf="@+id/img_mobil_detail_booking"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txt_nama_mobil_booking"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="serif"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_12ssp"
+                        android:textStyle="bold"
+                        tools:text="Toyota Avanza" />
+
+                    <TextView
+                        android:id="@+id/txt_tipe_mobil_booking"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="serif"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="@dimen/_8ssp"
+                        android:textStyle="normal"
+                        tools:text="(Tipe xxx)" />
+
+                    <TextView
+                        android:id="@+id/txt_tipe_booking"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:fontFamily="serif"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="@dimen/_10ssp"
+                        android:textStyle="normal"
+                        tools:text="Mobil dan supir" />
+
+                    <TextView
+                        android:id="@+id/txt_harga_booking"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="serif"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_12ssp"
+                        android:textStyle="bold"
+                        tools:text="Rp500.000" />
+                </LinearLayout>
+            </RelativeLayout>
+
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:stretchColumns="0,2">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_5sdp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_span="3"
+                        android:fontFamily="serif"
+                        android:text="Tanggal dan Waktu"
+                        android:textAlignment="textStart"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_10ssp"
+                        android:textStyle="bold" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/txt_tanggal_pinjam_booking"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="0"
+                        android:fontFamily="serif"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_10ssp"
+                        android:textStyle="normal"
+                        tools:text="2020-05-10 (pukul 09:00)" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:fontFamily="serif"
+                        android:text="s/d"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/holo_red_dark"
+                        android:textSize="@dimen/_10ssp" />
+
+                    <TextView
+                        android:id="@+id/txt_tanggal_kembali_booking"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_column="2"
+                        android:fontFamily="serif"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_10ssp"
+                        tools:text="2020-05-12 (pukul 09:00)" />
+                </TableRow>
+
+            </TableLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:fontFamily="serif"
+                android:text="Metode Pembayaran"
+                android:textAlignment="textStart"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_10ssp"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_bayar_ditempat"
+                    android:layout_width="@dimen/_130sdp"
+                    android:layout_height="@dimen/_70sdp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_10ssp"
+                    android:elevation="@dimen/_2sdp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/colorPrimary"
+                            android:fontFamily="serif"
+                            android:padding="@dimen/_3sdp"
+                            android:text="Bayar ditempat"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/white"
+                            android:textSize="@dimen/_11ssp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:fontFamily="serif"
+                            android:text="Bayar ditempat"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/_11ssp" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_bayar_transfer"
+                    android:layout_width="@dimen/_130sdp"
+                    android:layout_height="@dimen/_70sdp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:layout_marginBottom="@dimen/_10ssp"
+                    android:elevation="@dimen/_2sdp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/txttransfer"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:background="@color/colorPrimary"
+                            android:fontFamily="serif"
+                            android:padding="@dimen/_3sdp"
+                            android:text="Transfer"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/white"
+                            android:textSize="@dimen/_11ssp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:id="@+id/img_bca"
+                            android:layout_width="@dimen/_40sdp"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_below="@+id/txttransfer"
+                            android:layout_alignParentStart="true"
+                            android:layout_margin="@dimen/_5sdp"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/bca" />
+
+                        <TextView
+                            android:id="@+id/txtnorek"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/txttransfer"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            android:layout_toEndOf="@id/img_bca"
+                            android:fontFamily="serif"
+                            android:text="03214328990"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/_10ssp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/txtnorek"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            android:layout_toEndOf="@id/img_bca"
+                            android:fontFamily="serif"
+                            android:text="A/n Rahmandanu"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/_8ssp" />
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:fontFamily="serif"
+                android:text="Kirim Bukti Transfer"
+                android:textAlignment="textStart"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_10ssp"
+                android:textStyle="bold" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:elevation="@dimen/_3sdp">
+                <RelativeLayout
+                    android:padding="@dimen/_5sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:id="@+id/imgwa"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:src="@drawable/wa"
+                        android:scaleType="centerInside"/>
+
+                    <TextView
+                        android:id="@+id/wa"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:layout_toEndOf="@id/imgwa"
+                        android:fontFamily="serif"
+                        android:text="whatsapp"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="@dimen/_8ssp" />
+
+                    <TextView
+                        android:id="@+id/nomr"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:layout_below="@id/wa"
+                        android:layout_toEndOf="@id/imgwa"
+                        android:fontFamily="serif"
+                        android:text="0813-8493-2462"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_10ssp" />
+
+                    <TextView
+                        android:id="@+id/slicee"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_toEndOf="@id/nomr"
+                        android:fontFamily="serif"
+                        android:text="/"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_15ssp" />
+
+                    <TextView
+                        android:id="@+id/kunjungi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:layout_below="@id/wa"
+                        android:layout_alignParentEnd="true"
+                        android:layout_toEndOf="@id/slicee"
+                        android:fontFamily="serif"
+                        android:text="Kunjugi rental"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_10ssp" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:elevation="@dimen/_3sdp"
+                android:stretchColumns="1">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/holo_red_light"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="serif"
+                        android:layout_span="2"
+                        android:padding="@dimen/_5sdp"
+                        android:text="Syarat dan Ketentuan"
+                        android:textAlignment="textStart"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/_11ssp" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="serif"
+                        android:layout_column="0"
+                        android:padding="@dimen/_5sdp"
+                        android:text="1."
+                        android:textAlignment="textStart"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_8ssp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="serif"
+                        android:layout_column="1"
+                        android:padding="@dimen/_5sdp"
+                        android:text="Pembayaran boleh di lakukan secara Deposite minimal 50%"
+                        android:textAlignment="textStart"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_8ssp" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="serif"
+                        android:layout_column="0"
+                        android:padding="@dimen/_5sdp"
+                        android:text="2."
+                        android:textAlignment="textStart"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_8ssp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="serif"
+                       android:layout_column="1"
+                        android:padding="@dimen/_5sdp"
+                        android:text="Jika Pengembalian mobil tidak sesuai dengan tanggal pengembalian maka akan di kenakan denda."
+                        android:textAlignment="textStart"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_8ssp" />
+
+                </TableRow>
+
+            </TableLayout>
+
+            <Button
+                android:id="@+id/btn_booking"
+                android:layout_marginTop="@dimen/_40sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Booking"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:background="@drawable/bg_btn"
+                android:fontFamily="serif"
+                android:textStyle="bold"
+                android:textSize="@dimen/_13ssp"
+                style="@style/Widget.AppCompat.Button.Colored"/>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

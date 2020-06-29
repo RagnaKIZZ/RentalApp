@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_100sdp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/_20sdp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/img_profile"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_100sdp"
+                    android:scaleType="centerCrop"
+                    app:civ_border_color="@color/gray_new"
+                    app:civ_border_width="@dimen/_1sdp"
+                    tools:src="@drawable/blank_profile" />
+
+                <ProgressBar
+                    android:id="@+id/progress_bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/txt_nama_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_40sdp"
+                android:clickable="true"
+                android:drawableEnd="@drawable/ic_chevron_right_black_24dp"
+                android:fontFamily="serif"
+                android:padding="@dimen/_10sdp"
+                android:textAlignment="textStart"
+                tools:text="Ahmad Rusdani" />
+
+            <TextView
+                android:id="@+id/txt_email_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:drawableEnd="@drawable/ic_chevron_right_black_24dp"
+                android:fontFamily="serif"
+                android:padding="@dimen/_10sdp"
+                android:textAlignment="textStart"
+                tools:text="ahmadrusdani80@gmail.com" />
+
+            <TextView
+                android:id="@+id/txt_phone_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:drawableEnd="@drawable/ic_chevron_right_black_24dp"
+                android:fontFamily="serif"
+                android:padding="@dimen/_10sdp"
+                android:textAlignment="textStart"
+                tools:text="081316634481" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>
