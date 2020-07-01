@@ -140,7 +140,7 @@ public class MobilActivity extends AppCompatActivity {
                                     item.setNama(response.getData().get(i).getNama());
                                     item.setPintu(response.getData().get(i).getPintu());
                                     item.setStatus(response.getData().get(i).getStatus());
-                                    item.setTahun(response.getData().get(i).getStatus());
+                                    item.setTahun(response.getData().get(i).getTahun());
                                     item.setTransmisi(response.getData().get(i).getTransmisi());
                                     item.setWarna(response.getData().get(i).getWarna());
                                     item.setTipe(response.getData().get(i).getTipe());

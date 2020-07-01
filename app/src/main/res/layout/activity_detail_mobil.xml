@@ -370,6 +370,7 @@
                             android:weightSum="1">
 
                             <EditText
+                                android:id="@+id/edt_start"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_column="0"
@@ -388,6 +389,7 @@
                                 android:textStyle="normal" />
 
                             <EditText
+                                android:id="@+id/edt_end"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_column="0"

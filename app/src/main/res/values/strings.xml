@@ -51,6 +51,11 @@
     <string name="jam_dipilih">Jam dipilih</string>
     <string name="buat_order">Buat Order</string>
     <string name="harga_sewa_mobil">Harga sewa mobil:</string>
+    <string name="worng_end_date">Can\'t end work at this time!</string>
+    <string name="cant_startt">Tidak bisa mulai menyewa pada waktu ini</string>
+    <string name="cant_endd">Tidak bisa menyelesaikan sewa pada waktu ini</string>
+    <string name="jam_startt">Tidak bisa memulai sewa pada jam ini</string>
+    <string name="lengkapi_data">Tolong lengkapi data terlebih dahulu</string>
 
 
 </resources>

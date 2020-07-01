@@ -21,7 +21,6 @@ import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
-import com.kaopiz.kprogresshud.KProgressHUD;
 
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
@@ -111,8 +110,8 @@ public class HelperClass {
                     @Override
                     public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
                         progressBar.setVisibility(View.GONE);
-//                        img.setImageResource(R.drawable.blank_profile);
-                        return false;
+                        img.setImageResource(R.drawable.blank_profile);
+                        return true;
                     }
 
                     @Override
