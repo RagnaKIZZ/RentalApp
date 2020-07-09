@@ -23,6 +23,7 @@
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/img_profile"
+                    android:transitionName="@string/img"
                     android:layout_width="@dimen/_100sdp"
                     android:layout_height="@dimen/_100sdp"
                     android:scaleType="centerCrop"
@@ -44,6 +45,8 @@
                 android:layout_marginTop="@dimen/_40sdp"
                 android:clickable="true"
                 android:drawableEnd="@drawable/ic_chevron_right_black_24dp"
+                android:drawableStart="@drawable/ic_baseline_account_circle_gray_24"
+                android:drawablePadding="@dimen/_10sdp"
                 android:fontFamily="serif"
                 android:padding="@dimen/_10sdp"
                 android:textAlignment="textStart"
@@ -55,6 +58,8 @@
                 android:layout_height="wrap_content"
                 android:clickable="true"
                 android:drawableEnd="@drawable/ic_chevron_right_black_24dp"
+                android:drawableStart="@drawable/ic_baseline_email_gray_24"
+                android:drawablePadding="@dimen/_10sdp"
                 android:fontFamily="serif"
                 android:padding="@dimen/_10sdp"
                 android:textAlignment="textStart"
@@ -66,10 +71,23 @@
                 android:layout_height="wrap_content"
                 android:clickable="true"
                 android:drawableEnd="@drawable/ic_chevron_right_black_24dp"
+                android:drawableStart="@drawable/ic_baseline_local_phone_gray_24"
+                android:drawablePadding="@dimen/_10sdp"
                 android:fontFamily="serif"
                 android:padding="@dimen/_10sdp"
                 android:textAlignment="textStart"
                 tools:text="081316634481" />
+
+            <TextView
+                android:id="@+id/txt_pass_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:drawableEnd="@drawable/ic_chevron_right_black_24dp"
+                android:fontFamily="serif"
+                android:padding="@dimen/_10sdp"
+                android:textAlignment="textStart"
+                android:text="Ganti password" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

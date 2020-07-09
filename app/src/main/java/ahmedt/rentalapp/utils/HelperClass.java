@@ -17,9 +17,11 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.RequestBuilder;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
 
 import java.text.NumberFormat;
@@ -123,6 +125,28 @@ public class HelperClass {
                 .into(img);
     }
 
+    public static void loadGambarSmall(Context context, String url, final ProgressBar progressBar, final ImageView img) {
+        progressBar.setVisibility(View.VISIBLE);
+        Glide.with(context)
+                .load(url)
+                .apply(new RequestOptions().override(480, 480))
+                .listener(new RequestListener<Drawable>() {
+                    @Override
+                    public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+                        progressBar.setVisibility(View.GONE);
+                        img.setImageResource(R.drawable.blank_profile);
+                        return true;
+                    }
+
+                    @Override
+                    public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+                        progressBar.setVisibility(View.GONE);
+                        return false;
+                    }
+                })
+                .into(img);
+    }
+
     public static void loading(ProgressDialog hud, String judul, String deskripsi, boolean cancelable){
         if (judul==null){
             judul="Loading";
@@ -136,21 +160,33 @@ public class HelperClass {
         hud.show();
     }
 
-    public static void convertHarga(TextView txt, double harga, String hari){
+    public static void convertHarga(TextView txt, double harga, String hari) {
         Locale locale = new Locale("in", "ID");
         NumberFormat format = NumberFormat.getCurrencyInstance(locale);
-        txt.setText(format.format(harga)+hari);
+        txt.setText(format.format(harga) + hari);
     }
 
-    public static void parseDate(String date, TextView edt){
+    public static void parseDate(String date, TextView edt) {
         SimpleDateFormat time = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        try{
+        try {
             Date waktu = time.parse(date);
-            SimpleDateFormat format1 = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss");
+            SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd HH:mm");
             String realTime = format1.format(waktu);
             edt.setText(realTime);
-        }catch(Exception e){
-            Log.d("ASD", "onBindViewHolder: "+e.getMessage());
+        } catch (Exception e) {
+            Log.d("ASD", "onBindViewHolder: " + e.getMessage());
+        }
+    }
+
+    public static void parseDate2(String date, TextView edt) {
+        SimpleDateFormat time = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        try {
+            Date waktu = time.parse(date);
+            SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+            String realTime = format1.format(waktu);
+            edt.setText(realTime);
+        } catch (Exception e) {
+            Log.d("ASD", "onBindViewHolder: " + e.getMessage());
         }
     }
 }

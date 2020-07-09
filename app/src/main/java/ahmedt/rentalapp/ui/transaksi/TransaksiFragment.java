@@ -1,5 +1,8 @@
 package ahmedt.rentalapp.ui.transaksi;
 
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -34,12 +37,13 @@ import ahmedt.rentalapp.ui.transaksi.transaksimodel.TransaksiAdapter;
 import ahmedt.rentalapp.ui.transaksi.transaksimodel.TransaksiModel;
 import ahmedt.rentalapp.utils.HelperClass;
 import ahmedt.rentalapp.utils.SessionPrefs;
+import ahmedt.rentalapp.utils.UniversalModel;
 import ahmedt.rentalapp.utils.UrlServer;
 import okhttp3.Response;
 
 public class TransaksiFragment extends Fragment {
     private static final String TAG = "TransaksiFragment";
-    private RecyclerView rvTrans ;
+    private RecyclerView rvTrans;
     private ArrayList<DataItem> list = new ArrayList<>();
     private TransaksiAdapter adapter;
     private LinearLayout include_lay;
@@ -48,7 +52,6 @@ public class TransaksiFragment extends Fragment {
     private ImageView imgMsg;
     private ProgressBar progressBar;
     private SwipeRefreshLayout swipeRefreshLayout;
-
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -70,12 +73,41 @@ public class TransaksiFragment extends Fragment {
         txtMsg = view.findViewById(R.id.txt_msg);
         btnRefresh = view.findViewById(R.id.btn_refresh);
         swipeRefreshLayout = view.findViewById(R.id.swipe_up_layout_transaksi);
-        progressBar =  view.findViewById(R.id.progress_bar);
+        progressBar = view.findViewById(R.id.progress_bar);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         adapter = new TransaksiAdapter(getActivity(), list);
         rvTrans.setLayoutManager(linearLayoutManager);
         rvTrans.setHasFixedSize(true);
         rvTrans.setAdapter(adapter);
+
+        adapter.setOnItemClickListener(new TransaksiAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position, final DataItem model) {
+                AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+
+                alert.setTitle("Cancel");
+                alert.setMessage("Apakah Anda yakin ingin membatalkan pemesanan?")
+                        .setCancelable(true)
+                        .setPositiveButton("ya", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                if (getActivity() != null) {
+                                    String uid = Prefs.getString(SessionPrefs.U_ID, "");
+                                    String token_login = Prefs.getString(SessionPrefs.TOKEN_LOGIN, "");
+                                    Log.d(TAG, "onClick: ID " + model.getOrderId());
+                                    cancelOrder(uid, token_login, model.getOrderId());
+                                }
+                            }
+                        })
+                        .setNegativeButton("tidak", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        });
+                alert.show();
+            }
+        });
 
         include_lay.setVisibility(View.GONE);
         progressBar.setVisibility(View.GONE);
@@ -83,7 +115,12 @@ public class TransaksiFragment extends Fragment {
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                getListOrder();
+                if (swipeRefreshLayout.isRefreshing()) {
+                    if (include_lay.getVisibility() == View.VISIBLE) {
+                        include_lay.setVisibility(View.GONE);
+                    }
+                    getListOrder();
+                }
             }
         });
 
@@ -99,8 +136,11 @@ public class TransaksiFragment extends Fragment {
     }
 
     private void getListOrder() {
-        swipeRefreshLayout.setEnabled(false);
-        progressBar.setVisibility(View.VISIBLE);
+        if (swipeRefreshLayout.isRefreshing()) {
+            progressBar.setVisibility(View.GONE);
+        } else {
+            progressBar.setVisibility(View.VISIBLE);
+        }
         AndroidNetworking.post(UrlServer.URL_ORDERAN)
                 .addBodyParameter("id", Prefs.getString(SessionPrefs.U_ID, ""))
                 .addBodyParameter("token", Prefs.getString(SessionPrefs.TOKEN_LOGIN, ""))
@@ -109,9 +149,9 @@ public class TransaksiFragment extends Fragment {
                     @Override
                     public void onResponse(Response okHttpResponse, TransaksiModel response) {
                         progressBar.setVisibility(View.GONE);
-                        swipeRefreshLayout.setEnabled(true);
-                        if (okHttpResponse.isSuccessful()){
-                            if (response.getCode() == 200){
+                        swipeRefreshLayout.setRefreshing(false);
+                        if (okHttpResponse.isSuccessful()) {
+                            if (response.getCode() == 200) {
                                 list.clear();
                                 adapter.updateList(list);
                                 for (int i = 0; i < response.getData().size(); i++) {
@@ -133,12 +173,11 @@ public class TransaksiFragment extends Fragment {
                                     list.add(item);
                                 }
                                 adapter.updateList(list);
-                            }else{
-                                if (!list.isEmpty()) {
-                                    Toast.makeText(getActivity(), R.string.something_wrong, Toast.LENGTH_SHORT).show();
-                                } else {
-                                    HelperClass.responseError(include_lay, imgMsg, R.drawable.ic_account_balance_wallet_black_24dp, txtMsg, getString(R.string.no_trans));
-                                }
+                            } else {
+                                list.clear();
+                                adapter.updateList(list);
+                                HelperClass.responseError(include_lay, imgMsg, R.drawable.ic_account_balance_wallet_black_24dp, txtMsg, getString(R.string.no_trans));
+
                             }
                         }
 
@@ -146,24 +185,63 @@ public class TransaksiFragment extends Fragment {
 
                     @Override
                     public void onError(ANError anError) {
-                        swipeRefreshLayout.setEnabled(true);
+                        swipeRefreshLayout.setRefreshing(false);
                         progressBar.setVisibility(View.GONE);
                         if (anError.getErrorCode() != 0) {
                             Log.d(TAG, "onError: " + anError.getErrorDetail());
-                            if (!list.isEmpty()){
+                            if (!list.isEmpty()) {
                                 Toast.makeText(getActivity(), R.string.server_error, Toast.LENGTH_SHORT).show();
-                            }else{
+                            } else {
                                 HelperClass.responseError(include_lay, imgMsg, R.drawable.ic_cloud_off_black_24dp, txtMsg, getString(R.string.servererrorr));
                             }
                         } else {
                             Log.d(TAG, "onError: " + anError.getErrorCode());
                             Log.d(TAG, "onError: " + anError.getErrorBody());
                             Log.d(TAG, "onError: " + anError.getErrorDetail());
-                            if (!list.isEmpty()){
+                            if (!list.isEmpty()) {
                                 Toast.makeText(getActivity(), R.string.cek_internet, Toast.LENGTH_SHORT).show();
-                            }else{
+                            } else {
                                 HelperClass.responseError(include_lay, imgMsg, R.drawable.ic_signal_wifi_off_black_24dp, txtMsg, getString(R.string.nointernett));
                             }
+                        }
+                    }
+                });
+    }
+
+    private void cancelOrder(String id, String token, String order_id) {
+        final ProgressDialog dialog = new ProgressDialog(getActivity());
+        HelperClass.loading(dialog, null, null, false);
+        AndroidNetworking.post(UrlServer.URL_CANCEL)
+                .addBodyParameter("id", id)
+                .addBodyParameter("token", token)
+                .addBodyParameter("order_id", order_id)
+                .build()
+                .getAsOkHttpResponseAndObject(UniversalModel.class, new OkHttpResponseAndParsedRequestListener<UniversalModel>() {
+                    @Override
+                    public void onResponse(Response okHttpResponse, UniversalModel response) {
+                        dialog.dismiss();
+                        if (okHttpResponse.isSuccessful()) {
+                            if (response.getCode() == 200) {
+                                Toast.makeText(getActivity(), "Pesanan dibatalkan!", Toast.LENGTH_SHORT).show();
+                                getListOrder();
+                            } else {
+                                Toast.makeText(getActivity(), response.getMsg(), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onError(ANError anError) {
+                        dialog.dismiss();
+                        if (anError.getErrorCode() != 0) {
+                            Log.d(TAG, "onError: " + anError.getErrorDetail());
+                            Toast.makeText(getActivity(), R.string.server_error, Toast.LENGTH_SHORT).show();
+                        } else {
+                            Log.d(TAG, "onError: " + anError.getErrorCode());
+                            Log.d(TAG, "onError: " + anError.getErrorBody());
+                            Log.d(TAG, "onError: " + anError.getErrorDetail());
+
+                            Toast.makeText(getActivity(), R.string.cek_internet, Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

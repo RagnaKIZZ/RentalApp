@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.profile.EditProfileActivity">
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/_70sdp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:id="@+id/txt_name_profile"
+            app:counterEnabled="true"
+            app:counterMaxLength="20"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:layout_marginStart="@dimen/_30sdp"
+            android:layout_marginEnd="@dimen/_30sdp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:fontFamily="serif"
+                android:layout_height="wrap_content"
+                android:hint="Nama"
+                android:textSize="@dimen/_12ssp"
+                android:inputType="text"
+                android:imeOptions="actionNext" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:id="@+id/txt_email_profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_30sdp"
+            android:layout_marginEnd="@dimen/_30sdp"
+            android:layout_marginBottom="@dimen/_5sdp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_12ssp"
+                android:fontFamily="serif"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:imeOptions="actionNext" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:id="@+id/txt_hp_profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_30sdp"
+            android:layout_marginEnd="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_5sdp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nomor Telepon"
+                android:textSize="@dimen/_12ssp"
+                android:fontFamily="serif"
+                android:inputType="number"
+                android:imeOptions="actionNext" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:id="@+id/txt_new_password_profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:passwordToggleEnabled="true"
+            android:layout_marginStart="@dimen/_30sdp"
+            android:layout_marginEnd="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_5sdp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password baru"
+                android:textSize="@dimen/_12ssp"
+                android:fontFamily="serif"
+                android:inputType="textPassword"
+                android:imeOptions="actionNext" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:id="@+id/txt_repassword_profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:passwordToggleEnabled="true"
+            android:layout_marginStart="@dimen/_30sdp"
+            android:layout_marginEnd="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_5sdp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Re-Type password"
+                android:textSize="@dimen/_12ssp"
+                android:fontFamily="serif"
+                android:inputType="textPassword"
+                android:imeOptions="actionNext" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txt_password_profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:passwordToggleEnabled="true"
+            android:layout_marginStart="@dimen/_30sdp"
+            android:layout_marginEnd="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_5sdp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:textSize="@dimen/_12ssp"
+                android:fontFamily="serif"
+                android:inputType="textPassword"
+                android:imeOptions="actionNext" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <Button
+            android:layout_marginBottom="@dimen/_50sdp"
+            android:id="@+id/btn_edit_profile"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:layout_marginEnd="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_30sdp"
+            android:layout_gravity="end"
+            android:textStyle="bold"
+            android:fontFamily="serif"
+            android:textSize="@dimen/_15ssp"
+            android:background="@drawable/bg_btn"
+            android:textColor="@android:color/white"
+            android:paddingEnd="@dimen/_20sdp"
+            android:paddingStart="@dimen/_20sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:padding="@dimen/_10sdp"
+            android:text="Ubah" />
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

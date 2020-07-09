@@ -4,6 +4,9 @@
     <color name="colorAccent">#67dbff</color>
     <color name="colorPrimaryDark">#007ab0</color>
     <color name="primaryTextColor">#000000</color>
+    <color name="ucrop_color_toolbar">@color/colorPrimary</color>
+    <color name="ucrop_color_statusbar">@color/colorPrimary</color>
+    <color name="ucrop_color_widget_active">@color/colorAccent</color>
 
     <color name="gray_new">#727272</color>
 </resources>

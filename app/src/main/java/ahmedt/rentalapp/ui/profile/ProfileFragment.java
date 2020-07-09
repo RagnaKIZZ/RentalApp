@@ -1,9 +1,11 @@
 package ahmedt.rentalapp.ui.profile;
 
+import android.app.ActivityOptions;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,6 +14,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -39,11 +42,14 @@ import de.hdodenhof.circleimageview.CircleImageView;
 import es.dmoral.toasty.Toasty;
 import okhttp3.Response;
 
+import static android.app.Activity.RESULT_OK;
+
 public class ProfileFragment extends Fragment {
     private static final String TAG = "ProfileFragment";
-    private CircleImageView imgProfile;
+    private ImageView imgProfile;
     private ProgressBar progressBar;
-    private TextView txtNama, txtEmail, txtPhone;
+    private TextView txtNama, txtEmail, txtPhone, txtPass;
+    private String foto = Prefs.getString(SessionPrefs.FOTO, "");
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -60,8 +66,8 @@ public class ProfileFragment extends Fragment {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.menu_exit :
+        switch (item.getItemId()) {
+            case R.id.menu_exit:
                 logOut();
                 break;
         }
@@ -86,19 +92,71 @@ public class ProfileFragment extends Fragment {
         txtNama = view.findViewById(R.id.txt_nama_profile);
         txtEmail = view.findViewById(R.id.txt_email_profile);
         txtPhone = view.findViewById(R.id.txt_phone_profile);
+        txtPass = view.findViewById(R.id.txt_pass_profile);
 
-        if (Prefs.getString(SessionPrefs.FOTO, "").isEmpty()){
+        if (foto.isEmpty()) {
             Glide.with(getActivity())
                     .load(R.drawable.blank_profile)
                     .into(imgProfile);
             progressBar.setVisibility(View.GONE);
-        }else{
-            HelperClass.loadGambar(getActivity(), UrlServer.URL_FOTO+Prefs.getString(SessionPrefs.FOTO, ""), progressBar, imgProfile);
+        } else {
+            HelperClass.loadGambar(getActivity(), UrlServer.URL_FOTO + foto, progressBar, imgProfile);
         }
 
         txtNama.setText(Prefs.getString(SessionPrefs.NAMA, ""));
+        txtNama.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), EditProfileActivity.class);
+                i.putExtra("code", "1");
+                startActivityForResult(i, 1);
+            }
+        });
+
         txtEmail.setText(Prefs.getString(SessionPrefs.EMAIL, ""));
+        txtEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), EditProfileActivity.class);
+                i.putExtra("code", "2");
+                startActivityForResult(i, 2);
+            }
+        });
+
         txtPhone.setText((Prefs.getString(SessionPrefs.TELEPON, "")));
+        txtPhone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), EditProfileActivity.class);
+                i.putExtra("code", "3");
+                startActivityForResult(i, 3);
+            }
+        });
+
+        txtPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), EditProfileActivity.class);
+                i.putExtra("code", "4");
+                startActivityForResult(i, 4);
+            }
+        });
+
+        imgProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), DetailFotoActivity.class);
+                View shareView = imgProfile;
+                String transitionName = getString(R.string.img);
+                ActivityOptions transOpt = null;
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    transOpt = ActivityOptions.makeSceneTransitionAnimation(getActivity(), shareView, transitionName);
+                    startActivity(i, transOpt.toBundle());
+                } else {
+                    startActivity(i);
+                }
+            }
+        });
     }
 
     private void logOut() {
@@ -167,6 +225,40 @@ public class ProfileFragment extends Fragment {
                             }
                         }
                     });
+        }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (Prefs.getString(SessionPrefs.FOTO, "").isEmpty()) {
+            Glide.with(getActivity())
+                    .load(R.drawable.blank_profile)
+                    .into(imgProfile);
+            Log.d(TAG, "onResume: kosong: " + Prefs.getString(SessionPrefs.FOTO, ""));
+        } else {
+            if (!foto.equals(Prefs.getString(SessionPrefs.FOTO, ""))) {
+                HelperClass.loadGambar(getActivity(), UrlServer.URL_FOTO + Prefs.getString(SessionPrefs.FOTO, ""), progressBar, imgProfile);
+                Log.d(TAG, "onResume: beda" + foto);
+                Log.d(TAG, "onResume: beda: " + Prefs.getString(SessionPrefs.FOTO, ""));
+            }
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            String extra = data.getStringExtra("extra");
+            if (requestCode == 1) {
+                txtNama.setText(extra);
+            } else if (requestCode == 2) {
+                txtEmail.setText(extra);
+            } else if (requestCode == 3) {
+                txtPhone.setText(extra);
+            } else {
+
+            }
         }
     }
 }

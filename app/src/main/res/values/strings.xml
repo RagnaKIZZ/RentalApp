@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Rental App</string>
-    <string name="title_home">Home</string>
+    <string name="title_home">Beranda</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="ancol">Pantai Ancol</string>
@@ -22,22 +22,22 @@
     <string name="dufan_alamat">Taman Impian Jaya Ancol, Jakarta</string>
     <string name="dufan_nama">Dunia Fantasi (Dufan)</string>
 
-    <string name="retype">Re-type Password</string>
-    <string name="valid_email">Please enter a valid email address</string>
-    <string name="cant_empty">Field can\'t be empty!</string>
-    <string name="doesnt_match">Must match as password!</string>
-    <string name="password_must_contains">Password min 8 character and must contains number, lowercase, uppercase</string>
-    <string name="valid_number">Please enter a valid number</string>
-    <string name="not_checked">Must be checked to continue</string>
+    <string name="retype">Ketikkan kembali Kata Sandi</string>
+    <string name="valid_email">lakan masukkan alamat email yang valid</string>
+    <string name="cant_empty">Field tidak boleh kosong!</string>
+    <string name="doesnt_match">Harus cocok dengan kata sandi!</string>
+    <string name="password_must_contains">Kata sandi min 8 karakter dan harus mengandung angka, huruf kecil, huruf besar</string>
+    <string name="valid_number">Silakan masukkan nomor yang valid</string>
+    <string name="not_checked">Harus dicentang untuk melanjutkan</string>
 
-    <string name="servererrorr">Server error, please refresh page!</string>
-    <string name="nointernett">Connection lost, please refresh page!</string>
-    <string name="no_cars">No cars available</string>
-    <string name="no_trans">You haven\'t done any transactions</string>
+    <string name="servererrorr">Server error, tolong segarkan halaman!</string>
+    <string name="nointernett">Koneksi terputus, tolong segarkan halaman!</string>
+    <string name="no_cars">Tidak ada mobil yang tersedia</string>
+    <string name="no_trans">Kamu belum melakukan transaksi apapun!</string>
     <string name="server_error">Server error!</string>
-    <string name="cek_internet">Check your network!</string>
+    <string name="cek_internet">Periksa jaringan Anda!</string>
 
-    <string name="something_wrong">Something wrong!</string>
+    <string name="something_wrong">Ada yang salah!</string>
     <string name="pilih_jenis_mobil">Pilih jenis mobil</string>
     <string name="minivan">Minivan</string>
     <string name="sedan">Sedan</string>
@@ -45,7 +45,7 @@
     <string name="destinasi_populer_di_jakarta">Destinasi populer di Jakarta</string>
     <string name="pilih_tanggal_dan_jam">Pilih tanggal dan jam</string>
     <string name="tanggal_pinjam">Tanggal Pinjam</string>
-    <string name="select_date">Select date</string>
+    <string name="select_date">Pilih tanggal</string>
     <string name="tanggal_kembali">Tanggal Kembali</string>
     <string name="pilih_jam_sewa">Pilih jam sewa</string>
     <string name="jam_dipilih">Jam dipilih</string>
@@ -54,8 +54,13 @@
     <string name="worng_end_date">Can\'t end work at this time!</string>
     <string name="cant_startt">Tidak bisa mulai menyewa pada waktu ini</string>
     <string name="cant_endd">Tidak bisa menyelesaikan sewa pada waktu ini</string>
-    <string name="jam_startt">Tidak bisa memulai sewa pada jam ini</string>
+    <string name="jam_startt">Jam sewa mulai dari pukul 09:00 sampai 15:00</string>
     <string name="lengkapi_data">Tolong lengkapi data terlebih dahulu</string>
+    <string name="transaksi">Transaksi</string>
+    <string name="profil">Profil</string>
+    <string name="img">trans_img</string>
+
+    <string name="hello_world">Hello world!</string>
 
 
 </resources>

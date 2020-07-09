@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -28,6 +29,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 import ahmedt.rentalapp.R;
+import ahmedt.rentalapp.booking.BookingActivity;
 import ahmedt.rentalapp.mobil.mobilmodel.DataItem;
 import ahmedt.rentalapp.utils.HelperClass;
 import ahmedt.rentalapp.utils.SessionPrefs;
@@ -43,11 +45,12 @@ public class DetailMobilActivity extends AppCompatActivity {
     private Button btnMakeOrder, btnClock;
     private EditText edtStart, edtEnd;
     private ProgressBar progressBar;
-    int isSupir = 0;
+    int isSupir = 1;
     long start, end;
     int th ;
     int bl ;
-    int hr ;
+    int hr;
+    String jam = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,29 +88,30 @@ public class DetailMobilActivity extends AppCompatActivity {
         bl = Calendar.getInstance().get(Calendar.MONTH);
         getTomorrow(edtStart);
 
-        Log.d(TAG, "findView: "+Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
+        Log.d(TAG, "findView: " + Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
 
         Intent i = getIntent();
         DataItem item = i.getParcelableExtra("data_item");
 
-        String nama = item.getNama();
-        String foto = item.getFoto();
+        final String nama = item.getNama();
+        final String foto = item.getFoto();
         String warna = item.getWarna();
         String tahun = item.getTahun();
         String transmisi = item.getTransmisi();
-        String tipe = item.getTipe();
+        final String tipe = item.getTipe();
         String kursi = item.getKursi();
         String pintu = item.getPintu();
         String bags = item.getAirBag();
-        String harga = item.getHarga();
+        final String harga = item.getHarga();
+        final String id_mobil = item.getMobilId();
         double hargaReal = Double.parseDouble(harga);
 
         txtNama.setText(nama);
-        txTipe.setText("Tipe: "+tipe);
+        txTipe.setText("Tipe: " + tipe);
         txtWarna.setText(warna);
         HelperClass.convertHarga(txtHarga, hargaReal, "/hari");
-        txtBag.setText(bags+" bags");
-        txtPintu.setText(pintu+" doors");
+        txtBag.setText(bags + " bags");
+        txtPintu.setText(pintu + " doors");
         txtTransmisi.setText(transmisi);
         txtTahun.setText(tahun);
         txtKursi.setText(kursi+" seats");
@@ -144,12 +148,34 @@ public class DetailMobilActivity extends AppCompatActivity {
         switchMaterial.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked){
-                    isSupir = 1;
+                if (isChecked) {
+                    isSupir = 2;
                     Toast.makeText(DetailMobilActivity.this, "Menambahkan supir!", Toast.LENGTH_SHORT).show();
-                }else{
-                    isSupir = 0;
+                } else {
+                    isSupir = 1;
                     Toast.makeText(DetailMobilActivity.this, "Batal menambahkan supir!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        btnMakeOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!edtStart.getText().toString().isEmpty() && !edtEnd.getText().toString().isEmpty() && !jam.isEmpty()) {
+                    Intent i = new Intent(DetailMobilActivity.this, BookingActivity.class);
+                    i.putExtra("id_mobil", id_mobil);
+                    i.putExtra("harga", harga);
+                    i.putExtra("tipe", tipe);
+                    i.putExtra("start_date", edtStart.getText().toString().trim());
+                    i.putExtra("end_date", edtEnd.getText().toString().trim());
+                    i.putExtra("isSupir", isSupir);
+                    i.putExtra("jam", jam);
+                    i.putExtra("nama", nama);
+                    i.putExtra("total_date", TOTAL_DAY);
+                    i.putExtra("foto", foto);
+                    startActivity(i);
+                } else {
+                    Toast.makeText(DetailMobilActivity.this, R.string.lengkapi_data, Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -218,12 +244,13 @@ public class DetailMobilActivity extends AppCompatActivity {
                 calendar.set(Calendar.MINUTE, minute);
                 int timeOfDay = calendar.get(Calendar.HOUR_OF_DAY);
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm");
-                if (timeOfDay >= 0 && timeOfDay < 8) {
+                if (timeOfDay >= 0 && timeOfDay < 9) {
                     Toast.makeText(DetailMobilActivity.this, R.string.jam_startt, Toast.LENGTH_SHORT).show();
                 } else if (timeOfDay >= 15 && timeOfDay < 24) {
                     Toast.makeText(DetailMobilActivity.this, R.string.jam_startt, Toast.LENGTH_SHORT).show();
                 } else {
                     edtStartHour.setText(simpleDateFormat.format(calendar.getTime()));
+                    jam = simpleDateFormat.format(calendar.getTime());
                 }
             }
         };
@@ -239,7 +266,16 @@ public class DetailMobilActivity extends AppCompatActivity {
         String getDate = simpleDateFormat.format(tomorrow);
         edtStartDate.setText(getDate);
         hr = calendar.get(Calendar.DAY_OF_MONTH);
-        Log.d(TAG, "getTomorrow: "+hr);
+        Log.d(TAG, "getTomorrow: " + hr);
         start = tomorrow.getTime();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

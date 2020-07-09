@@ -9,11 +9,11 @@
     <item
         android:id="@+id/navigation_trans"
         android:icon="@drawable/ic_assignment_black_24dp"
-        android:title="Transaksi" />
+        android:title="@string/transaksi" />
 
     <item
         android:id="@+id/navigation_profile"
         android:icon="@drawable/ic_person_black_24dp"
-        android:title="Profile" />
+        android:title="@string/profil" />
 
 </menu>
