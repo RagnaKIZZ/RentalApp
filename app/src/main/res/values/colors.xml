@@ -9,4 +9,5 @@
     <color name="ucrop_color_widget_active">@color/colorAccent</color>
 
     <color name="gray_new">#727272</color>
+    <color name="warningColor">#ffd600</color>
 </resources>

@@ -1,15 +1,11 @@
 package ahmedt.rentalapp.ui.transaksi.transaksimodel;
 
-import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,26 +20,14 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.androidnetworking.AndroidNetworking;
-import com.androidnetworking.error.ANError;
-import com.androidnetworking.interfaces.OkHttpResponseAndParsedRequestListener;
-import com.bumptech.glide.Glide;
-import com.pixplicity.easyprefs.library.Prefs;
-
-import org.w3c.dom.Text;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
 import ahmedt.rentalapp.R;
-import ahmedt.rentalapp.ui.transaksi.transaksimodel.DataItem;
 import ahmedt.rentalapp.utils.HelperClass;
-import ahmedt.rentalapp.utils.SessionPrefs;
-import ahmedt.rentalapp.utils.UniversalModel;
 import ahmedt.rentalapp.utils.UrlServer;
-import okhttp3.Response;
 
 public class TransaksiAdapter extends RecyclerView.Adapter<TransaksiAdapter.ViewHolder> {
     private Context context;

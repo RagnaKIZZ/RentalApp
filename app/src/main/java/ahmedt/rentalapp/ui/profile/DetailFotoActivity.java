@@ -1,8 +1,5 @@
 package ahmedt.rentalapp.ui.profile;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -15,6 +12,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
@@ -33,7 +33,6 @@ import ahmedt.rentalapp.utils.HelperClass;
 import ahmedt.rentalapp.utils.SessionPrefs;
 import ahmedt.rentalapp.utils.UniversalModel;
 import ahmedt.rentalapp.utils.UrlServer;
-import es.dmoral.toasty.Toasty;
 import okhttp3.Response;
 
 public class DetailFotoActivity extends AppCompatActivity {

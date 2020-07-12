@@ -1,7 +1,5 @@
 package ahmedt.rentalapp.ui.profile;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -14,11 +12,12 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.OkHttpResponseAndParsedRequestListener;
 import com.google.android.material.textfield.TextInputLayout;
-import com.kaopiz.kprogresshud.KProgressHUD;
 import com.pixplicity.easyprefs.library.Prefs;
 
 import java.util.regex.Pattern;
@@ -28,7 +27,6 @@ import ahmedt.rentalapp.utils.HelperClass;
 import ahmedt.rentalapp.utils.SessionPrefs;
 import ahmedt.rentalapp.utils.UniversalModel;
 import ahmedt.rentalapp.utils.UrlServer;
-import es.dmoral.toasty.Toasty;
 import okhttp3.Response;
 
 public class EditProfileActivity extends AppCompatActivity {
@@ -181,7 +179,7 @@ public class EditProfileActivity extends AppCompatActivity {
                         if (okHttpResponse.isSuccessful()) {
                             hud.dismiss();
                             if (response.getCode() == 200) {
-                                Toasty.success(ctx, "Change data success!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(ctx, "Change data success!", Toast.LENGTH_SHORT).show();
                                 if (code != "4") {
                                     Prefs.putString(prefsParam, value);
                                 }

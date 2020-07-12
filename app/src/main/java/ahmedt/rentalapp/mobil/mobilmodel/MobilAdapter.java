@@ -1,9 +1,7 @@
 package ahmedt.rentalapp.mobil.mobilmodel;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,15 +13,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
 import ahmedt.rentalapp.R;
 import ahmedt.rentalapp.mobil.DetailMobilActivity;
-import ahmedt.rentalapp.mobil.mobilmodel.DataItem;
 import ahmedt.rentalapp.utils.HelperClass;
 import ahmedt.rentalapp.utils.UrlServer;
 

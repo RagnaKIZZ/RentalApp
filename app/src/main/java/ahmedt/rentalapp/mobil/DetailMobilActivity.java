@@ -1,13 +1,9 @@
 package ahmedt.rentalapp.mobil;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,8 +17,9 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.material.switchmaterial.SwitchMaterial;
-import com.pixplicity.easyprefs.library.Prefs;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -32,9 +29,7 @@ import ahmedt.rentalapp.R;
 import ahmedt.rentalapp.booking.BookingActivity;
 import ahmedt.rentalapp.mobil.mobilmodel.DataItem;
 import ahmedt.rentalapp.utils.HelperClass;
-import ahmedt.rentalapp.utils.SessionPrefs;
 import ahmedt.rentalapp.utils.UrlServer;
-import es.dmoral.toasty.Toasty;
 
 public class DetailMobilActivity extends AppCompatActivity {
     private static final String TAG = "DetailMobilActivity";

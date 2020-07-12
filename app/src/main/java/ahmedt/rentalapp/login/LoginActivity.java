@@ -1,7 +1,5 @@
 package ahmedt.rentalapp.login;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +11,8 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
@@ -28,7 +28,6 @@ import ahmedt.rentalapp.register.RegisterActivity;
 import ahmedt.rentalapp.utils.HelperClass;
 import ahmedt.rentalapp.utils.SessionPrefs;
 import ahmedt.rentalapp.utils.UrlServer;
-import es.dmoral.toasty.Toasty;
 import okhttp3.Response;
 
 public class LoginActivity extends AppCompatActivity {

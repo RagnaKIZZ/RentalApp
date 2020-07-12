@@ -103,7 +103,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="serif"
                 android:hint="Re-Type password"
-                android:imeOptions="actionNext"
+                android:imeOptions="actionDone"
                 android:inputType="textPassword"
                 android:textSize="@dimen/_12ssp" />
         </com.google.android.material.textfield.TextInputLayout>

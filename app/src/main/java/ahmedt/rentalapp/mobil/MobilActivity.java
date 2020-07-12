@@ -1,13 +1,5 @@
 package ahmedt.rentalapp.mobil;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.MenuItemCompat;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
 import android.app.SearchManager;
 import android.content.Intent;
 import android.graphics.Color;
@@ -27,6 +19,14 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.MenuItemCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.OkHttpResponseAndParsedRequestListener;
@@ -35,7 +35,6 @@ import com.pixplicity.easyprefs.library.Prefs;
 import java.util.ArrayList;
 
 import ahmedt.rentalapp.R;
-import ahmedt.rentalapp.login.LoginActivity;
 import ahmedt.rentalapp.mobil.mobilmodel.DataItem;
 import ahmedt.rentalapp.mobil.mobilmodel.MobilAdapter;
 import ahmedt.rentalapp.mobil.mobilmodel.MobilModel;

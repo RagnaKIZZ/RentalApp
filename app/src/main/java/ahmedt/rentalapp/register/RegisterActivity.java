@@ -1,19 +1,16 @@
 package ahmedt.rentalapp.register;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
@@ -23,7 +20,6 @@ import com.google.android.material.textfield.TextInputLayout;
 import java.util.regex.Pattern;
 
 import ahmedt.rentalapp.R;
-import ahmedt.rentalapp.login.LoginActivity;
 import ahmedt.rentalapp.utils.HelperClass;
 import ahmedt.rentalapp.utils.UniversalModel;
 import ahmedt.rentalapp.utils.UrlServer;
@@ -153,8 +149,14 @@ public class RegisterActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Response okHttpResponse, UniversalModel response) {
                         progressDialog.dismiss();
-                        Toast.makeText(ctx, response.getMsg(), Toast.LENGTH_SHORT).show();
-                        finish();
+                        if (okHttpResponse.isSuccessful()) {
+                            if (response.getCode() == 200) {
+                                Toast.makeText(ctx, response.getMsg(), Toast.LENGTH_SHORT).show();
+                                finish();
+                            } else {
+                                Toast.makeText(ctx, response.getMsg(), Toast.LENGTH_SHORT).show();
+                            }
+                        }
                     }
 
                     @Override

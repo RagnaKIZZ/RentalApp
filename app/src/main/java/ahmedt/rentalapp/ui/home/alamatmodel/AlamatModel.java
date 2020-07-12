@@ -1,17 +1,18 @@
 package ahmedt.rentalapp.ui.home.alamatmodel;
 
-import java.util.List;
 import com.google.gson.annotations.SerializedName;
 
-public class AlamatModel{
+import java.util.List;
 
-	@SerializedName("msg")
-	private String msg;
+public class AlamatModel {
 
-	@SerializedName("code")
-	private int code;
+    @SerializedName("msg")
+    private String msg;
 
-	@SerializedName("data")
+    @SerializedName("code")
+    private int code;
+
+    @SerializedName("data")
 	private List<DataItem> data;
 
 	public void setMsg(String msg){

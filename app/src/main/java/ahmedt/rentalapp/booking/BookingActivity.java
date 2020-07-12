@@ -1,8 +1,5 @@
 package ahmedt.rentalapp.booking;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-
 import android.animation.AnimatorInflater;
 import android.animation.AnimatorSet;
 import android.app.AlertDialog;
@@ -21,17 +18,18 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.OkHttpResponseAndParsedRequestListener;
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.RequestBuilder;
 import com.bumptech.glide.request.RequestOptions;
 import com.pixplicity.easyprefs.library.Prefs;
 
 import ahmedt.rentalapp.MainActivity;
 import ahmedt.rentalapp.R;
-import ahmedt.rentalapp.login.LoginActivity;
 import ahmedt.rentalapp.utils.HelperClass;
 import ahmedt.rentalapp.utils.SessionPrefs;
 import ahmedt.rentalapp.utils.UniversalModel;
@@ -87,7 +85,7 @@ public class BookingActivity extends AppCompatActivity {
         cvLangsung = findViewById(R.id.cv_bayar_ditempat);
         cvTransfer = findViewById(R.id.cv_bayar_transfer);
         btnOrder = findViewById(R.id.btn_booking);
-        imgWa = findViewById(R.id.imgwa);
+//        imgWa = findViewById(R.id.imgwa);
         imgBca = findViewById(R.id.img_bca);
 
         Intent i = getIntent();
@@ -190,10 +188,10 @@ public class BookingActivity extends AppCompatActivity {
             }
         });
 
-        Glide.with(context)
-                .load(R.drawable.wa)
-                .apply(new RequestOptions().override(100, 100))
-                .into(imgWa);
+//        Glide.with(context)
+//                .load(R.drawable.wa)
+//                .apply(new RequestOptions().override(100, 100))
+//                .into(imgWa);
 
         Glide.with(context)
                 .load(R.drawable.bca)
@@ -251,7 +249,9 @@ public class BookingActivity extends AppCompatActivity {
                         if (okHttpResponse.isSuccessful()) {
                             if (response.getCode() == 200) {
                                 Toast.makeText(context, "Booking Mobil Sukses", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(context, MainActivity.class));
+                                Intent i = new Intent(context, MainActivity.class);
+                                i.putExtra("trans", "trans");
+                                startActivity(i);
                                 finishAffinity();
                             } else {
                                 Toast.makeText(context, response.getMsg(), Toast.LENGTH_SHORT).show();

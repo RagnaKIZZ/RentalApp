@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Rental App</string>
+    <string name="app_name">Jakarta Rent</string>
     <string name="title_home">Beranda</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
@@ -41,7 +41,7 @@
     <string name="pilih_jenis_mobil">Pilih jenis mobil</string>
     <string name="minivan">Minivan</string>
     <string name="sedan">Sedan</string>
-    <string name="pilih_alamat">-- Pilih Alamat --</string>
+    <string name="pilih_alamat">-- Pilih Cabang Jakarta Rent --</string>
     <string name="destinasi_populer_di_jakarta">Destinasi populer di Jakarta</string>
     <string name="pilih_tanggal_dan_jam">Pilih tanggal dan jam</string>
     <string name="tanggal_pinjam">Tanggal Pinjam</string>
@@ -61,6 +61,11 @@
     <string name="img">trans_img</string>
 
     <string name="hello_world">Hello world!</string>
+
+    <string name="update">Update</string>
+    <string name="nothx">Tidak, Terimakasih</string>
+    <string name="newupdate">Versi Baru Tersedia</string>
+    <string name="plzupdate">Mohon update untuk melanjutkan penggunaan</string>
 
 
 </resources>

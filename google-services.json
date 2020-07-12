@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "512835905437",
+    "firebase_url": "https://jakarta-rent.firebaseio.com",
+    "project_id": "jakarta-rent",
+    "storage_bucket": "jakarta-rent.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:512835905437:android:6f37c25e89638289013174",
+        "android_client_info": {
+          "package_name": "ahmedt.rentalapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "512835905437-1j49sjeavqvmvccon7e3m412e2atcmjd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSXhOYzZi5J9BRVaOW-gRfppM4mGC50P0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "512835905437-1j49sjeavqvmvccon7e3m412e2atcmjd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

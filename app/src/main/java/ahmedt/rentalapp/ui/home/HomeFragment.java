@@ -13,12 +13,10 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -42,7 +40,6 @@ import ahmedt.rentalapp.ui.home.destinasi.DestinasiAdapter;
 import ahmedt.rentalapp.ui.home.destinasi.itemDestinasi;
 import ahmedt.rentalapp.utils.SessionPrefs;
 import ahmedt.rentalapp.utils.UrlServer;
-import es.dmoral.toasty.Toasty;
 import okhttp3.Response;
 
 public class HomeFragment extends Fragment {
@@ -50,8 +47,8 @@ public class HomeFragment extends Fragment {
     private RecyclerView rvDestinasi;
     private ArrayList<itemDestinasi> list = new ArrayList<>();
     private DestinasiAdapter adapter;
-    private CardView cdMini, cdSedan, cdAlamat;
-    private TextView txtAlamat;
+    private CardView cdMini, cdSedan, cdAlamat, cdAlamatLengkap;
+    private TextView txtAlamat, txtAlamatLengkap;
     private ImageView imgMini, imgSedan;
     String alamat = "";
 
@@ -71,8 +68,10 @@ public class HomeFragment extends Fragment {
         cdAlamat = view.findViewById(R.id.cd_alamat);
         cdMini = view.findViewById(R.id.cd_mobil_minvan);
         cdSedan = view.findViewById(R.id.cd_mobil_sedan);
+        cdAlamatLengkap = view.findViewById(R.id.cd_alamat_lengkap);
         rvDestinasi = view.findViewById(R.id.rv_destinasi);
         txtAlamat = view.findViewById(R.id.txt_select_alamat);
+        txtAlamatLengkap = view.findViewById(R.id.txt_alamat_lengkap);
         imgSedan = view.findViewById(R.id.img_sedan);
         imgMini = view.findViewById(R.id.img_minivan);
         adapter = new DestinasiAdapter(getActivity(), list);
@@ -80,6 +79,7 @@ public class HomeFragment extends Fragment {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 3);
         rvDestinasi.setLayoutManager(gridLayoutManager);
         rvDestinasi.setAdapter(adapter);
+        cdAlamatLengkap.setVisibility(View.GONE);
         setAdapter();
         Log.d(TAG, "onCreate: UID" + Prefs.getString(SessionPrefs.U_ID, ""));
         Log.d(TAG, "onCreate: UID" + Prefs.getString(SessionPrefs.TOKEN_LOGIN, ""));
@@ -128,7 +128,6 @@ public class HomeFragment extends Fragment {
                 }
             }
         });
-
         cdAlamat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -190,8 +189,10 @@ public class HomeFragment extends Fragment {
                                     public void onItemClick(View view, int position, DataItem model) {
                                         txtAlamat.setText(model.getKota());
                                         alamat = model.getAlamatId();
-                                        Log.d("Alamat", "onItemClick: "+model.getAlamatId());
+                                        Log.d("Alamat", "onItemClick: " + model.getAlamatId());
                                         dialog.dismiss();
+                                        cdAlamatLengkap.setVisibility(View.VISIBLE);
+                                        txtAlamatLengkap.setText(model.getAlamatDetail());
                                     }
                                 });
                             }else{

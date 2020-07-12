@@ -20,7 +20,7 @@
             android:id="@+id/frameimg"
             android:layout_width="@dimen/_70sdp"
             android:layout_height="@dimen/_50sdp"
-            android:layout_below="@+id/txt_status_trans">
+            android:layout_below="@+id/garis">
 
             <ImageView
                 android:id="@+id/img_mobil_trans"
@@ -39,7 +39,7 @@
             android:id="@+id/linear3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/txt_status_trans"
+            android:layout_below="@id/garis"
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_toEndOf="@+id/frameimg"
             android:orientation="vertical">
@@ -164,6 +164,15 @@
             android:textSize="@dimen/_10ssp"
             android:textStyle="bold"
             tools:text="Belum Lunas" />
+
+        <View
+            android:id="@+id/garis"
+            android:layout_marginBottom="@dimen/_1sdp"
+            android:layout_marginTop="@dimen/_1sdp"
+            android:layout_below="@+id/txt_status_trans"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@android:color/white" />
 
         <LinearLayout
             android:id="@+id/ln_btn_respon_trans"

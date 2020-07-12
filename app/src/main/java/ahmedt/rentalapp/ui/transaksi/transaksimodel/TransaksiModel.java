@@ -1,17 +1,18 @@
 package ahmedt.rentalapp.ui.transaksi.transaksimodel;
 
-import java.util.List;
 import com.google.gson.annotations.SerializedName;
 
-public class TransaksiModel{
+import java.util.List;
 
-	@SerializedName("msg")
-	private String msg;
+public class TransaksiModel {
 
-	@SerializedName("code")
-	private int code;
+    @SerializedName("msg")
+    private String msg;
 
-	@SerializedName("data")
+    @SerializedName("code")
+    private int code;
+
+    @SerializedName("data")
 	private List<DataItem> data;
 
 	public void setMsg(String msg){

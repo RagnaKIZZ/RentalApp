@@ -15,11 +15,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -83,29 +81,35 @@ public class TransaksiFragment extends Fragment {
         adapter.setOnItemClickListener(new TransaksiAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position, final DataItem model) {
-                AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+                Button btnCancel = view.findViewById(R.id.btn_cancel_trans);
+                btnCancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
 
-                alert.setTitle("Cancel");
-                alert.setMessage("Apakah Anda yakin ingin membatalkan pemesanan?")
-                        .setCancelable(true)
-                        .setPositiveButton("ya", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                if (getActivity() != null) {
-                                    String uid = Prefs.getString(SessionPrefs.U_ID, "");
-                                    String token_login = Prefs.getString(SessionPrefs.TOKEN_LOGIN, "");
-                                    Log.d(TAG, "onClick: ID " + model.getOrderId());
-                                    cancelOrder(uid, token_login, model.getOrderId());
-                                }
-                            }
-                        })
-                        .setNegativeButton("tidak", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.cancel();
-                            }
-                        });
-                alert.show();
+                        alert.setTitle("Cancel");
+                        alert.setMessage("Apakah Anda yakin ingin membatalkan pemesanan?")
+                                .setCancelable(true)
+                                .setPositiveButton("ya", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        if (getActivity() != null) {
+                                            String uid = Prefs.getString(SessionPrefs.U_ID, "");
+                                            String token_login = Prefs.getString(SessionPrefs.TOKEN_LOGIN, "");
+                                            Log.d(TAG, "onClick: ID " + model.getOrderId());
+                                            cancelOrder(uid, token_login, model.getOrderId());
+                                        }
+                                    }
+                                })
+                                .setNegativeButton("tidak", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.cancel();
+                                    }
+                                });
+                        alert.show();
+                    }
+                });
             }
         });
 
