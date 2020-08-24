@@ -211,7 +211,7 @@
                             android:background="@color/colorPrimary"
                             android:fontFamily="serif"
                             android:padding="@dimen/_3sdp"
-                            android:text="Bayar ditempat"
+                            android:text="Cash"
                             android:textAlignment="center"
                             android:textColor="@android:color/white"
                             android:textSize="@dimen/_11ssp"
@@ -277,7 +277,7 @@
                             android:layout_marginEnd="@dimen/_5sdp"
                             android:layout_toEndOf="@id/img_bca"
                             android:fontFamily="serif"
-                            android:text="03214328990"
+                            android:text="6890285331"
                             android:textAlignment="center"
                             android:textColor="@android:color/black"
                             android:textSize="@dimen/_10ssp" />
@@ -290,7 +290,7 @@
                             android:layout_marginEnd="@dimen/_5sdp"
                             android:layout_toEndOf="@id/img_bca"
                             android:fontFamily="serif"
-                            android:text="A/n Rahmandanu"
+                            android:text="A/n Fajri subhi"
                             android:textAlignment="center"
                             android:textColor="@android:color/black"
                             android:textSize="@dimen/_8ssp" />
@@ -393,94 +393,65 @@
         <!--                </RelativeLayout>-->
         <!--            </androidx.cardview.widget.CardView>-->
 
-        <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_20sdp"
-            android:layout_marginBottom="@dimen/_10sdp"
-            android:elevation="@dimen/_3sdp"
-            android:stretchColumns="1">
+        <!--        <TableLayout-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginStart="@dimen/_20sdp"-->
+        <!--            android:layout_marginTop="@dimen/_10sdp"-->
+        <!--            android:layout_marginEnd="@dimen/_20sdp"-->
+        <!--            android:layout_marginBottom="@dimen/_10sdp"-->
+        <!--            android:elevation="@dimen/_3sdp"-->
+        <!--            android:stretchColumns="1">-->
 
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/holo_red_light"
-                    android:weightSum="1">
+        <!--                <TableRow-->
+        <!--                    android:layout_width="match_parent"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:background="@android:color/holo_red_light"-->
+        <!--                    android:weightSum="1">-->
 
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_span="2"
-                        android:fontFamily="serif"
-                        android:padding="@dimen/_5sdp"
-                        android:text="Syarat dan Ketentuan"
-                        android:textAlignment="textStart"
-                        android:textColor="@android:color/white"
-                        android:textSize="@dimen/_11ssp" />
+        <!--                    <TextView-->
+        <!--                        android:layout_width="0dp"-->
+        <!--                        android:layout_height="wrap_content"-->
+        <!--                        android:layout_span="2"-->
+        <!--                        android:fontFamily="serif"-->
+        <!--                        android:padding="@dimen/_5sdp"-->
+        <!--                        android:text="Syarat dan Ketentuan"-->
+        <!--                        android:textAlignment="textStart"-->
+        <!--                        android:textColor="@android:color/white"-->
+        <!--                        android:textSize="@dimen/_11ssp" />-->
 
-                </TableRow>
+        <!--                </TableRow>-->
 
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:weightSum="1">
+        <!--                <TableRow-->
+        <!--                    android:layout_width="match_parent"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:weightSum="1">-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_column="0"
-                        android:fontFamily="serif"
-                        android:padding="@dimen/_5sdp"
-                        android:text="1."
-                        android:textAlignment="textStart"
-                        android:textColor="@android:color/black"
-                        android:textSize="@dimen/_8ssp" />
+        <!--                    <TextView-->
+        <!--                        android:layout_width="wrap_content"-->
+        <!--                        android:layout_height="wrap_content"-->
+        <!--                        android:layout_column="0"-->
+        <!--                        android:fontFamily="serif"-->
+        <!--                        android:padding="@dimen/_5sdp"-->
+        <!--                        android:text="1."-->
+        <!--                        android:textAlignment="textStart"-->
+        <!--                        android:textColor="@android:color/black"-->
+        <!--                        android:textSize="@dimen/_8ssp" />-->
 
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_column="1"
-                        android:fontFamily="serif"
-                        android:padding="@dimen/_5sdp"
-                        android:text="Pembayaran boleh di lakukan secara Deposite minimal 50%"
-                        android:textAlignment="textStart"
-                        android:textColor="@android:color/black"
-                        android:textSize="@dimen/_8ssp" />
+        <!--                    <TextView-->
+        <!--                        android:layout_width="0dp"-->
+        <!--                        android:layout_height="wrap_content"-->
+        <!--                        android:layout_column="1"-->
+        <!--                        android:fontFamily="serif"-->
+        <!--                        android:padding="@dimen/_5sdp"-->
+        <!--                        android:text="Pembayaran boleh di lakukan secara Deposite minimal 50%"-->
+        <!--                        android:textAlignment="textStart"-->
+        <!--                        android:textColor="@android:color/black"-->
+        <!--                        android:textSize="@dimen/_8ssp" />-->
 
-                </TableRow>
+        <!--                </TableRow>-->
 
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:weightSum="1">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_column="0"
-                        android:fontFamily="serif"
-                        android:padding="@dimen/_5sdp"
-                        android:text="2."
-                        android:textAlignment="textStart"
-                        android:textColor="@android:color/black"
-                        android:textSize="@dimen/_8ssp" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_column="1"
-                        android:fontFamily="serif"
-                        android:padding="@dimen/_5sdp"
-                        android:text="Jika Pengembalian mobil tidak sesuai dengan tanggal pengembalian maka akan di kenakan denda."
-                        android:textAlignment="textStart"
-                        android:textColor="@android:color/black"
-                        android:textSize="@dimen/_8ssp" />
-
-                </TableRow>
-
-            </TableLayout>
+        <!--            </TableLayout>-->
 
         <Button
             android:id="@+id/btn_booking"
@@ -488,7 +459,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_40sdp"
+            android:layout_marginTop="@dimen/_120sdp"
             android:layout_marginEnd="@dimen/_20sdp"
             android:layout_marginBottom="@dimen/_40sdp"
             android:background="@drawable/bg_btn"

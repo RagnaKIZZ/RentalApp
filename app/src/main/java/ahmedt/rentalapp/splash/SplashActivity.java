@@ -18,6 +18,7 @@ import ahmedt.rentalapp.utils.SessionPrefs;
 import ahmedt.rentalapp.utils.UpdateHelper;
 
 public class SplashActivity extends AppCompatActivity implements UpdateHelper.OnUpdateCheckLinstener {
+    int param = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +28,8 @@ public class SplashActivity extends AppCompatActivity implements UpdateHelper.On
         UpdateHelper.with(this)
                 .onUpdateCheck(this)
                 .check();
+        if (param == 0) {
 
-        if (UpdateHelper.keyUpdateEnable()) {
-
-        } else {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -44,10 +43,12 @@ public class SplashActivity extends AppCompatActivity implements UpdateHelper.On
                 }
             }, 2000);
         }
+
     }
 
     @Override
     public void onUpdateCheckListener(final String urlApp) {
+        param = 1;
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
         alert.setTitle(R.string.newupdate);
         alert.setMessage(R.string.plzupdate)

@@ -66,6 +66,11 @@
     <string name="nothx">Tidak, Terimakasih</string>
     <string name="newupdate">Versi Baru Tersedia</string>
     <string name="plzupdate">Mohon update untuk melanjutkan penggunaan</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="info">Info</string>
+    <string name="syarat_dan_ketentuan">Syarat dan Ketentuan</string>
+    <string name="tentang">Tentang</string>
 
 
 </resources>

@@ -20,6 +20,11 @@
     <fragment
         android:id="@+id/navigation_profile"
         android:name="ahmedt.rentalapp.ui.profile.ProfileFragment"
-        android:label="@string/title_notifications"
+        android:label="navigation_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/navigation_info"
+        android:name="ahmedt.rentalapp.ui.informasi.InfoFragment"
+        android:label="fragment_info"
+        tools:layout="@layout/fragment_info" />
 </navigation>

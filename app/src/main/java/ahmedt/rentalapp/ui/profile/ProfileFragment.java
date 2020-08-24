@@ -158,9 +158,9 @@ public class ProfileFragment extends Fragment {
         AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
 
         alert.setTitle("Logout");
-        alert.setMessage("Are you sure want to logout?")
+        alert.setMessage("Anda yakin ingin logout?")
                 .setCancelable(true)
-                .setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         if (getActivity() != null) {
@@ -171,7 +171,7 @@ public class ProfileFragment extends Fragment {
                         }
                     }
                 })
-                .setNegativeButton("no", new DialogInterface.OnClickListener() {
+                .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.cancel();

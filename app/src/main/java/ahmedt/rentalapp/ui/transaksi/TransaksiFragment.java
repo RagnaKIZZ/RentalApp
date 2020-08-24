@@ -3,9 +3,13 @@ package ahmedt.rentalapp.ui.transaksi;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -30,8 +34,11 @@ import com.pixplicity.easyprefs.library.Prefs;
 import java.util.ArrayList;
 
 import ahmedt.rentalapp.R;
+import ahmedt.rentalapp.ui.transaksi.detailtrans.DetailTransActivity;
+import ahmedt.rentalapp.ui.transaksi.history.HistoryActivity;
 import ahmedt.rentalapp.ui.transaksi.transaksimodel.DataItem;
 import ahmedt.rentalapp.ui.transaksi.transaksimodel.TransaksiAdapter;
+import ahmedt.rentalapp.ui.transaksi.transaksimodel.TransaksiAdapterV2;
 import ahmedt.rentalapp.ui.transaksi.transaksimodel.TransaksiModel;
 import ahmedt.rentalapp.utils.HelperClass;
 import ahmedt.rentalapp.utils.SessionPrefs;
@@ -39,11 +46,13 @@ import ahmedt.rentalapp.utils.UniversalModel;
 import ahmedt.rentalapp.utils.UrlServer;
 import okhttp3.Response;
 
+import static android.app.Activity.RESULT_OK;
+
 public class TransaksiFragment extends Fragment {
     private static final String TAG = "TransaksiFragment";
     private RecyclerView rvTrans;
     private ArrayList<DataItem> list = new ArrayList<>();
-    private TransaksiAdapter adapter;
+    private TransaksiAdapterV2 adapter;
     private LinearLayout include_lay;
     private Button btnRefresh;
     private TextView txtMsg;
@@ -64,6 +73,29 @@ public class TransaksiFragment extends Fragment {
         findView(view);
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_riwayat, menu);
+        final MenuItem menuItem = menu.findItem(R.id.menu_history);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_history:
+                startActivity(new Intent(getActivity(), HistoryActivity.class));
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     private void findView(View view) {
         rvTrans = view.findViewById(R.id.rv_transaksi);
         include_lay = view.findViewById(R.id.include_lay);
@@ -73,45 +105,45 @@ public class TransaksiFragment extends Fragment {
         swipeRefreshLayout = view.findViewById(R.id.swipe_up_layout_transaksi);
         progressBar = view.findViewById(R.id.progress_bar);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-        adapter = new TransaksiAdapter(getActivity(), list);
+        adapter = new TransaksiAdapterV2(getActivity(), list);
         rvTrans.setLayoutManager(linearLayoutManager);
         rvTrans.setHasFixedSize(true);
         rvTrans.setAdapter(adapter);
 
-        adapter.setOnItemClickListener(new TransaksiAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(View view, int position, final DataItem model) {
-                Button btnCancel = view.findViewById(R.id.btn_cancel_trans);
-                btnCancel.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
-
-                        alert.setTitle("Cancel");
-                        alert.setMessage("Apakah Anda yakin ingin membatalkan pemesanan?")
-                                .setCancelable(true)
-                                .setPositiveButton("ya", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        if (getActivity() != null) {
-                                            String uid = Prefs.getString(SessionPrefs.U_ID, "");
-                                            String token_login = Prefs.getString(SessionPrefs.TOKEN_LOGIN, "");
-                                            Log.d(TAG, "onClick: ID " + model.getOrderId());
-                                            cancelOrder(uid, token_login, model.getOrderId());
-                                        }
-                                    }
-                                })
-                                .setNegativeButton("tidak", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        dialog.cancel();
-                                    }
-                                });
-                        alert.show();
-                    }
-                });
-            }
-        });
+//        adapter.setOnItemClickListener(new TransaksiAdapter.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(View view, int position, final DataItem model) {
+//                Button btnCancel = view.findViewById(R.id.btn_cancel_trans);
+//                btnCancel.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+//
+//                        alert.setTitle("Cancel");
+//                        alert.setMessage("Apakah Anda yakin ingin membatalkan pemesanan?")
+//                                .setCancelable(true)
+//                                .setPositiveButton("ya", new DialogInterface.OnClickListener() {
+//                                    @Override
+//                                    public void onClick(DialogInterface dialog, int which) {
+//                                        if (getActivity() != null) {
+//                                            String uid = Prefs.getString(SessionPrefs.U_ID, "");
+//                                            String token_login = Prefs.getString(SessionPrefs.TOKEN_LOGIN, "");
+//                                            Log.d(TAG, "onClick: ID " + model.getOrderId());
+//                                            cancelOrder(uid, token_login, model.getOrderId());
+//                                        }
+//                                    }
+//                                })
+//                                .setNegativeButton("tidak", new DialogInterface.OnClickListener() {
+//                                    @Override
+//                                    public void onClick(DialogInterface dialog, int which) {
+//                                        dialog.cancel();
+//                                    }
+//                                });
+//                        alert.show();
+//                    }
+//                });
+//            }
+//        });
 
         include_lay.setVisibility(View.GONE);
         progressBar.setVisibility(View.GONE);
@@ -136,7 +168,9 @@ public class TransaksiFragment extends Fragment {
             }
         });
 
-        getListOrder();
+        if (isAdded()) {
+            getListOrder();
+        }
     }
 
     private void getListOrder() {
@@ -148,6 +182,7 @@ public class TransaksiFragment extends Fragment {
         AndroidNetworking.post(UrlServer.URL_ORDERAN)
                 .addBodyParameter("id", Prefs.getString(SessionPrefs.U_ID, ""))
                 .addBodyParameter("token", Prefs.getString(SessionPrefs.TOKEN_LOGIN, ""))
+                .addBodyParameter("tipe", "1")
                 .build()
                 .getAsOkHttpResponseAndObject(TransaksiModel.class, new OkHttpResponseAndParsedRequestListener<TransaksiModel>() {
                     @Override
@@ -177,11 +212,22 @@ public class TransaksiFragment extends Fragment {
                                     list.add(item);
                                 }
                                 adapter.updateList(list);
-                            } else {
-                                list.clear();
-                                adapter.updateList(list);
-                                HelperClass.responseError(include_lay, imgMsg, R.drawable.ic_account_balance_wallet_black_24dp, txtMsg, getString(R.string.no_trans));
 
+                                adapter.setOnItemClickListener(new TransaksiAdapterV2.OnItemClickListener() {
+                                    @Override
+                                    public void onItemClick(View view, final int position, DataItem model) {
+                                        Intent i = new Intent(getActivity(), DetailTransActivity.class);
+                                        i.putExtra("data_item", model);
+                                        i.putExtra("param", "1");
+                                        startActivityForResult(i, 22);
+                                    }
+                                });
+                            } else {
+                                if (isAdded()) {
+                                    list.clear();
+                                    adapter.updateList(list);
+                                    HelperClass.responseError(include_lay, imgMsg, R.drawable.ic_account_balance_wallet_black_24dp, txtMsg, getActivity().getString(R.string.no_trans));
+                                }
                             }
                         }
 
@@ -196,7 +242,9 @@ public class TransaksiFragment extends Fragment {
                             if (!list.isEmpty()) {
                                 Toast.makeText(getActivity(), R.string.server_error, Toast.LENGTH_SHORT).show();
                             } else {
-                                HelperClass.responseError(include_lay, imgMsg, R.drawable.ic_cloud_off_black_24dp, txtMsg, getString(R.string.servererrorr));
+                                if (isAdded()) {
+                                    HelperClass.responseError(include_lay, imgMsg, R.drawable.ic_cloud_off_black_24dp, txtMsg, getString(R.string.servererrorr));
+                                }
                             }
                         } else {
                             Log.d(TAG, "onError: " + anError.getErrorCode());
@@ -205,49 +253,34 @@ public class TransaksiFragment extends Fragment {
                             if (!list.isEmpty()) {
                                 Toast.makeText(getActivity(), R.string.cek_internet, Toast.LENGTH_SHORT).show();
                             } else {
-                                HelperClass.responseError(include_lay, imgMsg, R.drawable.ic_signal_wifi_off_black_24dp, txtMsg, getString(R.string.nointernett));
+                                if (isAdded()) {
+                                    HelperClass.responseError(include_lay, imgMsg, R.drawable.ic_signal_wifi_off_black_24dp, txtMsg, getString(R.string.nointernett));
+                                }
                             }
                         }
                     }
                 });
     }
 
-    private void cancelOrder(String id, String token, String order_id) {
-        final ProgressDialog dialog = new ProgressDialog(getActivity());
-        HelperClass.loading(dialog, null, null, false);
-        AndroidNetworking.post(UrlServer.URL_CANCEL)
-                .addBodyParameter("id", id)
-                .addBodyParameter("token", token)
-                .addBodyParameter("order_id", order_id)
-                .build()
-                .getAsOkHttpResponseAndObject(UniversalModel.class, new OkHttpResponseAndParsedRequestListener<UniversalModel>() {
-                    @Override
-                    public void onResponse(Response okHttpResponse, UniversalModel response) {
-                        dialog.dismiss();
-                        if (okHttpResponse.isSuccessful()) {
-                            if (response.getCode() == 200) {
-                                Toast.makeText(getActivity(), "Pesanan dibatalkan!", Toast.LENGTH_SHORT).show();
-                                getListOrder();
-                            } else {
-                                Toast.makeText(getActivity(), response.getMsg(), Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            Log.d(TAG, "onActivityResult: " + "result");
+            if (requestCode == 22) {
+                if (isAdded()) {
+                    Toast.makeText(getActivity(), "Result", Toast.LENGTH_SHORT).show();
+                    list.clear();
+                    adapter.updateList(list);
+                    getListOrder();
+                }
+            }
+        }
+    }
 
-                    @Override
-                    public void onError(ANError anError) {
-                        dialog.dismiss();
-                        if (anError.getErrorCode() != 0) {
-                            Log.d(TAG, "onError: " + anError.getErrorDetail());
-                            Toast.makeText(getActivity(), R.string.server_error, Toast.LENGTH_SHORT).show();
-                        } else {
-                            Log.d(TAG, "onError: " + anError.getErrorCode());
-                            Log.d(TAG, "onError: " + anError.getErrorBody());
-                            Log.d(TAG, "onError: " + anError.getErrorDetail());
+    @Override
+    public void onResume() {
+        super.onResume();
 
-                            Toast.makeText(getActivity(), R.string.cek_internet, Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
     }
 }

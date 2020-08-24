@@ -55,7 +55,7 @@ public class BookingActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setElevation(0);
-        getSupportActionBar().setTitle("Detail Booking");
+        getSupportActionBar().setTitle("Detail Pesanan");
 
         findView();
     }
@@ -155,7 +155,6 @@ public class BookingActivity extends AppCompatActivity {
                     //noinspection deprecation
                     txtByr.setBackgroundColor(context.getResources().getColor(R.color.warningColor));
                 }
-
             }
         });
 
@@ -198,23 +197,24 @@ public class BookingActivity extends AppCompatActivity {
                 .apply(new RequestOptions().override(200, 200))
                 .into(imgBca);
 
+        final double finalTotalHarga = totalHarga;
         btnOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (payParam != 0) {
                     AlertDialog.Builder alert = new AlertDialog.Builder(context);
-                    alert.setTitle("Booking");
-                    alert.setMessage("Apakah Anda yakin ingin booking?")
+                    alert.setTitle("Pesan");
+                    alert.setMessage("Apakah Anda yakin ingin pesan?")
                             .setCancelable(true)
-                            .setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                            .setPositiveButton("ya", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
                                     if (context != null) {
-                                        makeOrder(mobil_id, startDate, endDate, String.valueOf(payParam), String.valueOf(isSupir), harga);
+                                        makeOrder(mobil_id, startDate, endDate, String.valueOf(payParam), String.valueOf(isSupir), String.valueOf(finalTotalHarga));
                                     }
                                 }
                             })
-                            .setNegativeButton("no", new DialogInterface.OnClickListener() {
+                            .setNegativeButton("tidak", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
                                     dialog.cancel();
@@ -248,7 +248,7 @@ public class BookingActivity extends AppCompatActivity {
                         dialog.dismiss();
                         if (okHttpResponse.isSuccessful()) {
                             if (response.getCode() == 200) {
-                                Toast.makeText(context, "Booking Mobil Sukses", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context, "Pesan Mobil Sukses", Toast.LENGTH_SHORT).show();
                                 Intent i = new Intent(context, MainActivity.class);
                                 i.putExtra("trans", "trans");
                                 startActivity(i);

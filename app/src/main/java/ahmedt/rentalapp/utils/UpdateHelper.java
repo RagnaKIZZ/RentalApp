@@ -41,6 +41,7 @@ public class UpdateHelper {
         }
     }
 
+
     public static boolean keyUpdateEnable() {
         FirebaseRemoteConfig remoteConfig = FirebaseRemoteConfig.getInstance();
         return remoteConfig.getBoolean(KEY_UPDATE_ENABLE);

@@ -5,6 +5,8 @@ import android.animation.ValueAnimator;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.View;
@@ -13,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -22,6 +25,7 @@ import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
+import com.google.android.material.textfield.TextInputLayout;
 
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
@@ -104,16 +108,39 @@ public class HelperClass {
         txt.setText(time);
     }
 
-    public static void loadGambar(Context context, String url, final ProgressBar progressBar, final ImageView img) {
+    public static void turnOffError(final TextInputLayout txt) {
+        txt.getEditText().addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (txt.isErrorEnabled()) {
+                    txt.setErrorEnabled(false);
+                    txt.setError(null);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+    }
+
+    public static void loadGambar(final Context context, String url, final ProgressBar progressBar, final ImageView img) {
         progressBar.setVisibility(View.VISIBLE);
         Glide.with(context)
                 .load(url)
+                .error(R.drawable.err)
                 .listener(new RequestListener<Drawable>() {
                     @Override
                     public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
                         progressBar.setVisibility(View.GONE);
-                        img.setImageResource(R.drawable.blank_profile);
-                        return true;
+                        Toast.makeText(context, "Gagal memuat gambar!", Toast.LENGTH_SHORT).show();
+                        return false;
                     }
 
                     @Override

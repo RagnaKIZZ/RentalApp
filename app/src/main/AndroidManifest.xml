@@ -14,6 +14,10 @@
         android:roundIcon="@mipmap/ic_launcher_new_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ui.informasi.TentangActivity"></activity>
+        <activity android:name=".ui.transaksi.history.HistoryActivity" />
+        <activity android:name=".ui.transaksi.detailtrans.DetailTransActivity" />
+        <activity android:name=".ui.informasi.InfoActivity" />
         <activity
             android:name=".ui.profile.EditProfileActivity"
             android:screenOrientation="portrait" />

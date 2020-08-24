@@ -82,6 +82,13 @@ public class RegisterActivity extends AppCompatActivity {
                 validateRegister();
             }
         });
+
+        HelperClass.turnOffError(txtName);
+        HelperClass.turnOffError(txtEmail);
+        HelperClass.turnOffError(txtPass);
+        HelperClass.turnOffError(txtPhone);
+        HelperClass.turnOffError(txtRePass);
+
     }
 
     private void validateRegister() {
